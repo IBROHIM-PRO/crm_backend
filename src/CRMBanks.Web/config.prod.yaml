@@ -1,0 +1,22 @@
+ConnectionString:
+  PostgresDb:
+    Host: 127.0.0.1
+    Port: 5432
+    Database: crm_banks
+    User: postgres
+    Password: ibrohimjonm
+
+# JWT Authentication Settings
+JwtSettings:
+  SecretKey: "YourSuperSecretKeyForJWTTokenGenerationThatIsAtLeast32CharactersLong!"
+  Issuer: "CRMBanks"
+  Audience: "CRMBanksUsers"
+  ExpirationInMinutes: 60
+
+Logging:
+  LogLevel:
+    Default: Information
+    Microsoft: Warning
+    Microsoft.AspNetCore: Warning
+    Microsoft.EntityFrameworkCore.Database.Command: Warning
+    System.Net.Http.HttpClient: Warning
