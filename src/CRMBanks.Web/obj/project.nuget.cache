@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "N8BpbMusSKs=",
+  "dgSpecHash": "5fBI85lgwRA=",
   "success": true,
-  "projectFilePath": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.Web/CRMBanks.Web.csproj",
+  "projectFilePath": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.Web/CRMBanks.Web.csproj",
   "expectedPackageFiles": [
     "/home/ibrohim/.nuget/packages/automapper/13.0.1/automapper.13.0.1.nupkg.sha512",
     "/home/ibrohim/.nuget/packages/bouncycastle.cryptography/2.6.1/bouncycastle.cryptography.2.6.1.nupkg.sha512",

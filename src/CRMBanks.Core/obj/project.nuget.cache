@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6jb68G3Hk30=",
+  "dgSpecHash": "U0LQz4YRIOU=",
   "success": true,
-  "projectFilePath": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.Core/CRMBanks.Core.csproj",
+  "projectFilePath": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.Core/CRMBanks.Core.csproj",
   "expectedPackageFiles": [
     "/home/ibrohim/.nuget/packages/automapper/13.0.1/automapper.13.0.1.nupkg.sha512",
     "/home/ibrohim/.nuget/packages/microsoft.entityframeworkcore/9.0.6/microsoft.entityframeworkcore.9.0.6.nupkg.sha512",

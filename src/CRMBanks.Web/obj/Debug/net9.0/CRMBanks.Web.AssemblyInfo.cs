@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CRMBanks.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dc7a2ff31cd0b5be257b27909ed56299122a5e4a")]
 [assembly: System.Reflection.AssemblyProductAttribute("CRMBanks.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CRMBanks.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

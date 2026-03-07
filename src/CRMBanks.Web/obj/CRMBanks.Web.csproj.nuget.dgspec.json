@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.Web/CRMBanks.Web.csproj": {}
+    "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.Web/CRMBanks.Web.csproj": {}
   },
   "projects": {
-    "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.Core/CRMBanks.Core.csproj": {
+    "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.Core/CRMBanks.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.Core/CRMBanks.Core.csproj",
+        "projectUniqueName": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.Core/CRMBanks.Core.csproj",
         "projectName": "CRMBanks.Core",
-        "projectPath": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.Core/CRMBanks.Core.csproj",
+        "projectPath": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.Core/CRMBanks.Core.csproj",
         "packagesPath": "/home/ibrohim/.nuget/packages/",
-        "outputPath": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.Core/obj/",
+        "outputPath": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/ibrohim/.nuget/NuGet/NuGet.Config"
@@ -27,8 +27,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.SharedKernel/CRMBanks.SharedKernel.csproj": {
-                "projectPath": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.SharedKernel/CRMBanks.SharedKernel.csproj"
+              "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.SharedKernel/CRMBanks.SharedKernel.csproj": {
+                "projectPath": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.SharedKernel/CRMBanks.SharedKernel.csproj"
               }
             }
           }
@@ -85,14 +85,14 @@
         }
       }
     },
-    "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.Infrastructure/CRMBanks.Infrastructure.csproj": {
+    "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.Infrastructure/CRMBanks.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.Infrastructure/CRMBanks.Infrastructure.csproj",
+        "projectUniqueName": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.Infrastructure/CRMBanks.Infrastructure.csproj",
         "projectName": "CRMBanks.Infrastructure",
-        "projectPath": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.Infrastructure/CRMBanks.Infrastructure.csproj",
+        "projectPath": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.Infrastructure/CRMBanks.Infrastructure.csproj",
         "packagesPath": "/home/ibrohim/.nuget/packages/",
-        "outputPath": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.Infrastructure/obj/",
+        "outputPath": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.Infrastructure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/ibrohim/.nuget/NuGet/NuGet.Config"
@@ -108,8 +108,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.Core/CRMBanks.Core.csproj": {
-                "projectPath": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.Core/CRMBanks.Core.csproj"
+              "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.Core/CRMBanks.Core.csproj": {
+                "projectPath": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.Core/CRMBanks.Core.csproj"
               }
             }
           }
@@ -198,14 +198,14 @@
         }
       }
     },
-    "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.SharedKernel/CRMBanks.SharedKernel.csproj": {
+    "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.SharedKernel/CRMBanks.SharedKernel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.SharedKernel/CRMBanks.SharedKernel.csproj",
+        "projectUniqueName": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.SharedKernel/CRMBanks.SharedKernel.csproj",
         "projectName": "CRMBanks.SharedKernel",
-        "projectPath": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.SharedKernel/CRMBanks.SharedKernel.csproj",
+        "projectPath": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.SharedKernel/CRMBanks.SharedKernel.csproj",
         "packagesPath": "/home/ibrohim/.nuget/packages/",
-        "outputPath": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.SharedKernel/obj/",
+        "outputPath": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.SharedKernel/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/ibrohim/.nuget/NuGet/NuGet.Config"
@@ -264,14 +264,14 @@
         }
       }
     },
-    "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.Web/CRMBanks.Web.csproj": {
+    "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.Web/CRMBanks.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.Web/CRMBanks.Web.csproj",
+        "projectUniqueName": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.Web/CRMBanks.Web.csproj",
         "projectName": "CRMBanks.Web",
-        "projectPath": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.Web/CRMBanks.Web.csproj",
+        "projectPath": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.Web/CRMBanks.Web.csproj",
         "packagesPath": "/home/ibrohim/.nuget/packages/",
-        "outputPath": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.Web/obj/",
+        "outputPath": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.Web/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/ibrohim/.nuget/NuGet/NuGet.Config"
@@ -287,11 +287,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.Core/CRMBanks.Core.csproj": {
-                "projectPath": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.Core/CRMBanks.Core.csproj"
+              "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.Core/CRMBanks.Core.csproj": {
+                "projectPath": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.Core/CRMBanks.Core.csproj"
               },
-              "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.Infrastructure/CRMBanks.Infrastructure.csproj": {
-                "projectPath": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.Infrastructure/CRMBanks.Infrastructure.csproj"
+              "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.Infrastructure/CRMBanks.Infrastructure.csproj": {
+                "projectPath": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.Infrastructure/CRMBanks.Infrastructure.csproj"
               }
             }
           }

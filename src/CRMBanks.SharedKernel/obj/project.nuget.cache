@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+rAuxuzOrqo=",
+  "dgSpecHash": "BeGM1UbWar4=",
   "success": true,
-  "projectFilePath": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.SharedKernel/CRMBanks.SharedKernel.csproj",
+  "projectFilePath": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.SharedKernel/CRMBanks.SharedKernel.csproj",
   "expectedPackageFiles": [
     "/home/ibrohim/.nuget/packages/microsoft.extensions.configuration.abstractions/9.0.6/microsoft.extensions.configuration.abstractions.9.0.6.nupkg.sha512",
     "/home/ibrohim/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/9.0.6/microsoft.extensions.dependencyinjection.abstractions.9.0.6.nupkg.sha512",

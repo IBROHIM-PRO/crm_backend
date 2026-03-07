@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.SharedKernel/CRMBanks.SharedKernel.csproj": {}
+    "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.SharedKernel/CRMBanks.SharedKernel.csproj": {}
   },
   "projects": {
-    "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.SharedKernel/CRMBanks.SharedKernel.csproj": {
+    "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.SharedKernel/CRMBanks.SharedKernel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.SharedKernel/CRMBanks.SharedKernel.csproj",
+        "projectUniqueName": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.SharedKernel/CRMBanks.SharedKernel.csproj",
         "projectName": "CRMBanks.SharedKernel",
-        "projectPath": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.SharedKernel/CRMBanks.SharedKernel.csproj",
+        "projectPath": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.SharedKernel/CRMBanks.SharedKernel.csproj",
         "packagesPath": "/home/ibrohim/.nuget/packages/",
-        "outputPath": "/home/ibrohim/CascadeProjects/crm-banki-separated/backend/src/CRMBanks.SharedKernel/obj/",
+        "outputPath": "/home/ibrohim/Documents/crm_banks/crm_backend/src/CRMBanks.SharedKernel/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/ibrohim/.nuget/NuGet/NuGet.Config"
