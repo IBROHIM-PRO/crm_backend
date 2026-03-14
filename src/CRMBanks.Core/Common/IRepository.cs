@@ -19,4 +19,5 @@ public interface IRepository<T> where T : class
     List<T> UpdateRange(List<T> entities);
     void Remove(T entity);
     void RemoveRange(List<T> entities);
+    void IsDelete(T objModel);
 }

@@ -3,7 +3,7 @@ using CRMBanks.SharedKernel.Common.AbstractClasses;
 
 namespace CRMBanks.Core.Entities;
 
-public class User : EntityBase
+public class User : EntityProduction
 {
     [Required(ErrorMessage = "Ном холи аст")]
     public string Name { get; set; } = string.Empty;

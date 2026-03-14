@@ -104,11 +104,24 @@ public class Repository<T> : IRepository<T> where T : class
     public void Remove(T entity)
     {
         _dbSet.Remove(entity);
+        SaveChanges();
     }
 
     public void RemoveRange(List<T> entities)
     {
         _dbSet.RemoveRange(entities);
+        SaveChanges();
+    }
+    
+    public void IsDelete(T objModel)
+    {
+        if (objModel is EntityProduction e)
+        {
+            e.DateDeletedAt = DateTime.UtcNow;
+            e.IsDeleted = true;
+        }
+
+        Update(objModel);
     }
     
     private void UpdateTimestamps()

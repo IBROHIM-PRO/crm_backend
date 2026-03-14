@@ -2,7 +2,7 @@ using CRMBanks.SharedKernel.Common.AbstractClasses;
 
 namespace CRMBanks.Core.Entities;
 
-public class Bank : EntityBase
+public class Bank : EntityProduction
 {
     public string Name { get; set; } = string.Empty;
     public string Phone { get; set; } = string.Empty;

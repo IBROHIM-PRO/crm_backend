@@ -3,7 +3,7 @@ using CRMBanks.SharedKernel.Enums;
 
 namespace CRMBanks.Core.Entities;
 
-public class Request : EntityBase
+public class Request : EntityProduction
 {
     public string Name { get; set; } = string.Empty;
     public string Phone { get; set; } = string.Empty;

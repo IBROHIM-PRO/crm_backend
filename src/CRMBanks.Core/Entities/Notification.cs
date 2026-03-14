@@ -3,7 +3,7 @@ using CRMBanks.SharedKernel.Enums;
 
 namespace CRMBanks.Core.Entities;
 
-public class Notification : EntityBase
+public class Notification : EntityProduction
 {
     public int UserId { get; set; }
     public User? User { get; set; }
