@@ -93,14 +93,13 @@ public class UserService(IRepository<User> userRepository,
         user.AzSum = dto.AzSum;
         user.ToSum = dto.ToSum;
 
-        // Handle regions update similar to attributes/images pattern
         if (dto.RegionIds.Count != 0)
         {
             var regionsFromDto = await regionRepository.GetQuery()
                 .Where(r => dto.RegionIds.Contains(r.Id))
                 .ToListAsync();
 
-            user.Regions ??= new List<Region>();
+            user.Regions ??= [];
 
             var toRemove = user.Regions
                 .Where(r => !dto.RegionIds.Contains(r.Id))
@@ -110,7 +109,7 @@ public class UserService(IRepository<User> userRepository,
                 user.Regions.Remove(region);
 
             var toAdd = regionsFromDto
-                .Where(r => !user.Regions.Any(ur => ur.Id == r.Id))
+                .Where(r => user.Regions.All(ur => ur.Id != r.Id))
                 .ToList();
 
             user.Regions.AddRange(toAdd);
@@ -125,7 +124,7 @@ public class UserService(IRepository<User> userRepository,
         var user = await userRepository.GetIdAsync(id);
         if (user == null) return false;
 
-        userRepository.Remove(user);
+        userRepository.IsDelete(user);
         return true;
     }
 

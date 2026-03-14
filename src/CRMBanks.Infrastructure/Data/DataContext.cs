@@ -1,4 +1,5 @@
 using CRMBanks.Core.Entities;
+using CRMBanks.SharedKernel.Common.AbstractClasses;
 using Microsoft.EntityFrameworkCore;
 
 namespace CRMBanks.Infrastructure.Data;
@@ -25,6 +26,20 @@ public class DataContext(DbContextOptions<DataContext> options) : DbContext(opti
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+
+        foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+        {
+            if (typeof(EntityProduction).IsAssignableFrom(entityType.ClrType))
+            {
+                var parameter = System.Linq.Expressions.Expression.Parameter(entityType.ClrType, "e");
+                var isDeletedProperty = System.Linq.Expressions.Expression.Property(parameter, nameof(EntityProduction.IsDeleted));
+                var falseConstant = System.Linq.Expressions.Expression.Constant(false);
+                var body = System.Linq.Expressions.Expression.Equal(isDeletedProperty, falseConstant);
+                var lambda = System.Linq.Expressions.Expression.Lambda(body, parameter);
+                
+                modelBuilder.Entity(entityType.ClrType).HasQueryFilter(lambda);
+            }
+        }
 
         modelBuilder.Entity<User>()
             .HasOne(u => u.Bank)

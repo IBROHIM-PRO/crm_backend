@@ -25,6 +25,11 @@ public class MappingProfile : Profile
         CreateMap<TypeCredit, TypeCreditDto>().ReverseMap();
         CreateMap<TypeDeposit, TypeDepositDto>().ReverseMap();
 
+        CreateMap<Card, CardDto>().ReverseMap();
+        CreateMap<TypeProduct, TypeProductDto>().ReverseMap();
+        CreateMap<TypeCard, TypeCardDto>().ReverseMap();
+        CreateMap<TypeSum, TypeSumDto>().ReverseMap();
+
         CreateMap<RequestDto, Request>().ReverseMap();
         CreateMap<Role, RoleDto>().ReverseMap();
     }

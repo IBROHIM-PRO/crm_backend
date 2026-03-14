@@ -89,10 +89,26 @@ namespace CRMBanks.Infrastructure.Migrations
                         .HasColumnType("text")
                         .HasColumnName("address");
 
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_created");
+
+                    b.Property<DateTime?>("DateDeletedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_deleted_at");
+
+                    b.Property<DateTime?>("DateUpdated")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_updated");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("email");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean")
+                        .HasColumnName("is_deleted");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -119,13 +135,54 @@ namespace CRMBanks.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Currency")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("currency");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_created");
+
+                    b.Property<DateTime?>("DateDeletedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_deleted_at");
+
+                    b.Property<DateTime?>("DateUpdated")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_updated");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("description");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean")
+                        .HasColumnName("is_deleted");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("name");
 
+                    b.Property<decimal>("PurchaseAmount")
+                        .HasColumnType("numeric")
+                        .HasColumnName("purchase_amount");
+
+                    b.Property<int>("ShelfLifeMonths")
+                        .HasColumnType("integer")
+                        .HasColumnName("shelf_life_months");
+
+                    b.Property<int>("TypeCardId")
+                        .HasColumnType("integer")
+                        .HasColumnName("type_card_id");
+
                     b.HasKey("Id")
                         .HasName("pk_cards");
+
+                    b.HasIndex("TypeCardId")
+                        .HasDatabaseName("ix_cards_type_card_id");
 
                     b.ToTable("cards", (string)null);
                 });
@@ -151,6 +208,18 @@ namespace CRMBanks.Infrastructure.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("bank_id");
 
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_created");
+
+                    b.Property<DateTime?>("DateDeletedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_deleted_at");
+
+                    b.Property<DateTime?>("DateUpdated")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_updated");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("text")
@@ -169,6 +238,10 @@ namespace CRMBanks.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("infoprot");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean")
+                        .HasColumnName("is_deleted");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -232,6 +305,18 @@ namespace CRMBanks.Infrastructure.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("bank_id");
 
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_created");
+
+                    b.Property<DateTime?>("DateDeletedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_deleted_at");
+
+                    b.Property<DateTime?>("DateUpdated")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_updated");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("text")
@@ -250,6 +335,10 @@ namespace CRMBanks.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("infoprot");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean")
+                        .HasColumnName("is_deleted");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -304,6 +393,22 @@ namespace CRMBanks.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("created_at");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_created");
+
+                    b.Property<DateTime?>("DateDeletedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_deleted_at");
+
+                    b.Property<DateTime?>("DateUpdated")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_updated");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean")
+                        .HasColumnName("is_deleted");
 
                     b.Property<string>("Message")
                         .IsRequired()
@@ -384,6 +489,22 @@ namespace CRMBanks.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_created");
+
+                    b.Property<DateTime?>("DateDeletedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_deleted_at");
+
+                    b.Property<DateTime?>("DateUpdated")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_updated");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean")
+                        .HasColumnName("is_deleted");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text")
@@ -408,10 +529,26 @@ namespace CRMBanks.Infrastructure.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("bank_id");
 
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_created");
+
+                    b.Property<DateTime?>("DateDeletedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_deleted_at");
+
+                    b.Property<DateTime?>("DateUpdated")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_updated");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("email");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean")
+                        .HasColumnName("is_deleted");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -479,6 +616,22 @@ namespace CRMBanks.Infrastructure.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("created_at");
 
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_created");
+
+                    b.Property<DateTime?>("DateDeletedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_deleted_at");
+
+                    b.Property<DateTime?>("DateUpdated")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_updated");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean")
+                        .HasColumnName("is_deleted");
+
                     b.Property<string>("Reason")
                         .HasColumnType("text")
                         .HasColumnName("reason");
@@ -540,6 +693,26 @@ namespace CRMBanks.Infrastructure.Migrations
                             Id = 2,
                             Name = "user"
                         });
+                });
+
+            modelBuilder.Entity("CRMBanks.Core.Entities.TypeCard", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("name");
+
+                    b.HasKey("Id")
+                        .HasName("pk_type_card");
+
+                    b.ToTable("type_card", (string)null);
                 });
 
             modelBuilder.Entity("CRMBanks.Core.Entities.TypeCredit", b =>
@@ -648,10 +821,26 @@ namespace CRMBanks.Infrastructure.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("bank_id");
 
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_created");
+
+                    b.Property<DateTime?>("DateDeletedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_deleted_at");
+
+                    b.Property<DateTime?>("DateUpdated")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_updated");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("email");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean")
+                        .HasColumnName("is_deleted");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -739,6 +928,18 @@ namespace CRMBanks.Infrastructure.Migrations
                         .HasConstraintName("fk_auth2fs_users_user_id");
 
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("CRMBanks.Core.Entities.Card", b =>
+                {
+                    b.HasOne("CRMBanks.Core.Entities.TypeCard", "TypeCard")
+                        .WithMany("Cards")
+                        .HasForeignKey("TypeCardId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_cards_type_card_type_card_id");
+
+                    b.Navigation("TypeCard");
                 });
 
             modelBuilder.Entity("CRMBanks.Core.Entities.Credit", b =>
@@ -992,6 +1193,11 @@ namespace CRMBanks.Infrastructure.Migrations
             modelBuilder.Entity("CRMBanks.Core.Entities.Role", b =>
                 {
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("CRMBanks.Core.Entities.TypeCard", b =>
+                {
+                    b.Navigation("Cards");
                 });
 
             modelBuilder.Entity("CRMBanks.Core.Entities.TypeCredit", b =>

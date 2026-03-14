@@ -30,6 +30,7 @@ public static class ServiceRegistrationExtension
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IBankService, BankService>();
         services.AddScoped<IRegionService, RegionService>();
+        services.AddScoped<ICardService, CardService>();
         services.AddScoped<ICreditService, CreditService>();
         services.AddScoped<IDepositService, DepositService>();
         services.AddScoped<IRequestService, RequestService>();
@@ -38,6 +39,11 @@ public static class ServiceRegistrationExtension
         services.AddScoped<INotificationService, NotificationService>();
         services.AddScoped<IRoleService, RoleService>();
         services.AddScoped<INotificationSender, SignalRNotificationSender>();
+        services.AddScoped<ITypeCardService, TypeCardService>();
+        services.AddScoped<ITypeProductService, TypeProductService>();
+        services.AddScoped<ITypeSumService, TypeSumService>();
+        services.AddScoped<ITypeCreditService, TypeCreditService>();
+        services.AddScoped<ITypeDepositService, TypeDepositService>();
 
         return services;
     }

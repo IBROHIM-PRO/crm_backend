@@ -2,16 +2,15 @@ ConnectionString:
   PostgresDb:
     Host: 127.0.0.1
     Port: 5432
-    Database: crm_banks
+    Database: crm_banks1
     User: postgres
     Password: ibrohimjonm
 
-# JWT Authentication Settings
 JwtSettings:
   SecretKey: "YourSuperSecretKeyForJWTTokenGenerationThatIsAtLeast32CharactersLong!"
   Issuer: "CRMBanks"
   Audience: "CRMBanksUsers"
-  ExpirationInMinutes: 60
+  ExpirationInMinutes: 1440
 
 Logging:
   LogLevel:

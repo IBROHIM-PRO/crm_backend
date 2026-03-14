@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using CRMBanks.SharedKernel.Common.Interfaces;
 
 namespace CRMBanks.SharedKernel.Common.AbstractClasses;

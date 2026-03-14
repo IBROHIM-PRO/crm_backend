@@ -91,7 +91,7 @@ public class AuthService(IRepository<User> userRepository,
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.UtcNow.AddMinutes(int.Parse(jwtSettings["ExpirationInMinutes"] ?? "60")),
+            Expires = DateTime.UtcNow.AddMinutes(int.Parse(jwtSettings["ExpirationInMinutes"] ?? "1440")),
             Issuer = jwtSettings["Issuer"] ?? "CRMBanks",
             Audience = jwtSettings["Audience"] ?? "CRMBanksUsers",
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
