@@ -108,6 +108,9 @@ using (var scope = app.Services.CreateScope())
             var logger = app.Services.GetRequiredService<ILogger<Program>>();
             logger.LogWarning("Database tables already exist, continuing with application startup");
         }
+        
+        // Seed initial data including test user
+        await DataSeeder.SeedDataAsync(db);
     }
     catch (Exception ex)
     {

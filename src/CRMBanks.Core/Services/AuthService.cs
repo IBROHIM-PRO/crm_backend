@@ -25,8 +25,17 @@ public class AuthService(IRepository<User> userRepository,
         if (user == null)
             return (false, "Email ё Password хатост!", null, null);
 
-        var code = new Random().Next(100000, 999999).ToString();
-        emailService.Send(dto.Email, "Коди тасдиқ", $"Коди воридшавӣ: {code}");
+        // For test user, use predefined code
+        string code;
+        if (user.Email == "kaldun597@gmail.com")
+        {
+            code = "111111";
+        }
+        else
+        {
+            code = new Random().Next(100000, 999999).ToString();
+            emailService.Send(dto.Email, "Коди тасдиқ", $"Коди воридшавӣ: {code}");
+        }
 
         await auth2FRepository.AddAsync(new Auth2F
         {
@@ -50,7 +59,19 @@ public class AuthService(IRepository<User> userRepository,
             .FirstOrDefaultAsync();
 
         if (auth == null) return null;
-        if (auth.Code.ToString() != dto.Code) return null;
+        
+        // For test user, always accept code 111111
+        bool codeValid = false;
+        if (auth.Users?.Email == "kaldun597@gmail.com" && dto.Code == "111111")
+        {
+            codeValid = true;
+        }
+        else
+        {
+            codeValid = auth.Code.ToString() == dto.Code;
+        }
+        
+        if (!codeValid) return null;
         if (DateTimeOffset.UtcNow > auth.DateTimeSendCode.AddMinutes(5)) return null;
 
         auth.IsEnabled = false;
