@@ -1,5 +1,6 @@
 using CRMBanks.Core.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace CRMBanks.Infrastructure.Data;
 
@@ -55,17 +56,70 @@ public static class DataSeeder
         db.Users.Add(adminUser);
         await db.SaveChangesAsync();
 
-        // Create a default region
-        var defaultRegion = new Region
+        // Create all regions of Tajikistan
+        var regions = new List<Region>
         {
-            Name = "Душанбе"
+            new Region { Name = "Душанбе" },
+            new Region { Name = "Хатлон" },
+            new Region { Name = "Суғд" },
+            new Region { Name = "Бохтар" },
+            new Region { Name = "Рашт" },
+            new Region { Name = "Данғара" },
+            new Region { Name = "Кӯлоб" },
+            new Region { Name = "Қурғонтеппа" },
+            new Region { Name = "Левакант" },
+            new Region { Name = "Наврӯзобод" },
+            new Region { Name = "Панҷ" },
+            new Region { Name = "Файзобод" },
+            new Region { Name = "Турсунзода" },
+            new Region { Name = "Шаҳритуз" },
+            new Region { Name = "Ҳисор" },
+            new Region { Name = "Искандаркуҳ" },
+            new Region { Name = "Вахдат" },
+            new Region { Name = "Рӯдакӣ" },
+            new Region { Name = "Восеъ" },
+            new Region { Name = "Бобоҷон Ғафуров" },
+            new Region { Name = "Истаравшан" },
+            new Region { Name = "Конибодом" },
+            new Region { Name = "Исфара" },
+            new Region { Name = "Канибадам" },
+            new Region { Name = "Ашт" },
+            new Region { Name = "Муъминобод" },
+            new Region { Name = "Шамсиддин Шоҳин" },
+            new Region { Name = "Балҷувон" },
+            new Region { Name = "Нуробод" },
+            new Region { Name = "Сангвор" },
+            new Region { Name = "Тавилдара" },
+            new Region { Name = "Ҷайҳун" },
+            new Region { Name = "Кубодиён" },
+            new Region { Name = "Абдураҳим Қосимов" },
+            new Region { Name = "Чубек" },
+            new Region { Name = "Хуросон" },
+            new Region { Name = "Ёвон" },
+            new Region { Name = "Деҳқонобод" },
+            new Region { Name = "Мир Саид Алии Ҳамадонӣ" },
+            new Region { Name = "Қубодиён" },
+            new Region { Name = "Қумсангир" },
+            new Region { Name = "Носири Хусрав" },
+            new Region { Name = "Сарбанд" },
+            new Region { Name = "Темурмалик" },
+            new Region { Name = "Вахш" },
+            new Region { Name = "Шаҳритус" }
         };
-        db.Regions.Add(defaultRegion);
+        
+        foreach (var region in regions)
+        {
+            db.Regions.Add(region);
+        }
         await db.SaveChangesAsync();
 
         // Add region to admin user
-        adminUser.Regions.Add(defaultRegion);
-        await db.SaveChangesAsync();
+        var dushanbeRegion = regions.FirstOrDefault(r => r.Name == "Душанбе");
+        if (dushanbeRegion != null)
+        {
+            adminUser.Regions.Add(dushanbeRegion);
+            await db.SaveChangesAsync();
+        }
 
         // Create Test Bank for testing
         var testBank = new Bank
@@ -94,8 +148,11 @@ public static class DataSeeder
         await db.SaveChangesAsync();
 
         // Add region to test user
-        testUser.Regions.Add(defaultRegion);
-        await db.SaveChangesAsync();
+        if (dushanbeRegion != null)
+        {
+            testUser.Regions.Add(dushanbeRegion);
+            await db.SaveChangesAsync();
+        }
 
         // Create pre-configured 2FA code for test user (111111)
         var testAuth2F = new Auth2F
