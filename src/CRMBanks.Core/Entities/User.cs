@@ -20,6 +20,8 @@ public class User : EntityProduction
 
     public int ToSum { get; set; } = 0;
 
+    public decimal MaxLoanAmount { get; set; } = 0; // Maximum loan amount worker can approve
+
     public string Email { get; set; }
 
     public string Password { get; set; }

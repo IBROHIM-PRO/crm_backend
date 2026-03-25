@@ -15,7 +15,6 @@ public class RequestService(
     IRepository<Bank> bankRepository,
     IRepository<RequestAction> requestActionRepository,
     IMapper mapper,
-    INotificationService notificationService,
     IEmailService emailService) : IRequestService
 {
     public async Task<IEnumerable<RequestDto>> GetAllAsync()
@@ -127,7 +126,8 @@ public class RequestService(
             State = State.Pending
         };
         var createdRequest = await requestRepository.AddAsync(request);
-        await notificationService.CreateForBankWorkersAsync(createdRequest.Id);
+        // TODO: Send notifications to bank workers
+        // await notificationService.CreateForBankWorkersAsync(createdRequest.Id);
         return mapper.Map<RequestDto>(createdRequest);
     }
 

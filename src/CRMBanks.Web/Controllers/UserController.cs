@@ -51,6 +51,15 @@ public class UserController(IUserService userService) : ControllerBase
         return result ? NoContent() : NotFound();
     }
 
+    [HttpPut("{id:int}/permissions")]
+    [HttpPatch("{id:int}/permissions")]
+    [Authorize(Roles = "boss,admin")]
+    public async Task<IActionResult> UpdatePermissions(int id, [FromBody] UserPermissionsDto dto)
+    {
+        // TODO: Implement permissions update functionality
+        return Ok("Permissions update not yet implemented");
+    }
+
     [HttpDelete("{id:int}")]
     [Authorize(Roles = "admin")]
     public async Task<IActionResult> Delete(int id)

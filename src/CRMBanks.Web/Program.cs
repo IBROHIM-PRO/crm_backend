@@ -8,6 +8,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using CRMBanks.Infrastructure.MappingProfiles;
 using CRMBanks.Web.Hubs;
+using CRMBanks.Core.Services;
+using Microsoft.AspNetCore.SignalR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -86,7 +88,11 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new() { Title = "CRM Banki API", Version = "v1" });
 });
 
-builder.Services.AddSignalR();
+builder.Services.AddSignalR(options =>
+{
+    options.EnableDetailedErrors = true;
+});
+builder.Services.AddSingleton<IUserIdProvider, CustomUserIdProvider>();
 builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 builder.Services.AddInfrastructure(builder.Configuration);
 
@@ -133,5 +139,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.MapHub<NotificationHub>("/hubs/notifications");
+app.MapHub<AnalyticsHub>("/hubs/analytics");
 
 app.Run();

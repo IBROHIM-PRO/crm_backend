@@ -3,6 +3,7 @@ using System;
 using CRMBanks.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CRMBanks.Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20260318163904_AddDepositApplicationSystem")]
+    partial class AddDepositApplicationSystem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -77,74 +80,6 @@ namespace CRMBanks.Infrastructure.Migrations
                         .HasDatabaseName("ix_bank_request_requests_id");
 
                     b.ToTable("bank_request", (string)null);
-                });
-
-            modelBuilder.Entity("CRMBanks.Core.Entities.ApplicationInternalNote", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("ApplicationId")
-                        .HasColumnType("integer")
-                        .HasColumnName("application_id");
-
-                    b.Property<string>("ApplicationType")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("application_type");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("date_created");
-
-                    b.Property<DateTime?>("DateDeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("date_deleted_at");
-
-                    b.Property<DateTime?>("DateUpdated")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("date_updated");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("boolean")
-                        .HasColumnName("is_deleted");
-
-                    b.Property<bool>("IsPrivate")
-                        .HasColumnType("boolean")
-                        .HasColumnName("is_private");
-
-                    b.Property<string>("Note")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("note");
-
-                    b.Property<string>("NoteType")
-                        .HasColumnType("text")
-                        .HasColumnName("note_type");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<int>("WorkerId")
-                        .HasColumnType("integer")
-                        .HasColumnName("worker_id");
-
-                    b.HasKey("Id")
-                        .HasName("pk_application_internal_notes");
-
-                    b.HasIndex("WorkerId")
-                        .HasDatabaseName("ix_application_internal_notes_worker_id");
-
-                    b.ToTable("application_internal_notes", (string)null);
                 });
 
             modelBuilder.Entity("CRMBanks.Core.Entities.Auth2F", b =>
@@ -515,10 +450,6 @@ namespace CRMBanks.Infrastructure.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("application_date");
 
-                    b.Property<int?>("AssignedWorkerId")
-                        .HasColumnType("integer")
-                        .HasColumnName("assigned_worker_id");
-
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("date_created");
@@ -569,9 +500,6 @@ namespace CRMBanks.Infrastructure.Migrations
 
                     b.HasKey("Id")
                         .HasName("pk_deposit_applications");
-
-                    b.HasIndex("AssignedWorkerId")
-                        .HasDatabaseName("ix_deposit_applications_assigned_worker_id");
 
                     b.HasIndex("DepositId")
                         .HasDatabaseName("ix_deposit_applications_deposit_id");
@@ -657,10 +585,6 @@ namespace CRMBanks.Infrastructure.Migrations
                         .HasColumnType("text")
                         .HasColumnName("application_purpose");
 
-                    b.Property<int?>("AssignedWorkerId")
-                        .HasColumnType("integer")
-                        .HasColumnName("assigned_worker_id");
-
                     b.Property<int>("CreditId")
                         .HasColumnType("integer")
                         .HasColumnName("credit_id");
@@ -725,9 +649,6 @@ namespace CRMBanks.Infrastructure.Migrations
 
                     b.HasKey("Id")
                         .HasName("pk_loan_applications");
-
-                    b.HasIndex("AssignedWorkerId")
-                        .HasDatabaseName("ix_loan_applications_assigned_worker_id");
 
                     b.HasIndex("CreditId")
                         .HasDatabaseName("ix_loan_applications_credit_id");
@@ -1303,87 +1224,6 @@ namespace CRMBanks.Infrastructure.Migrations
                     b.ToTable("users", (string)null);
                 });
 
-            modelBuilder.Entity("CRMBanks.Core.Entities.VerificationChecklist", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("ApplicationId")
-                        .HasColumnType("integer")
-                        .HasColumnName("application_id");
-
-                    b.Property<string>("ApplicationType")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("application_type");
-
-                    b.Property<string>("Comments")
-                        .HasColumnType("text")
-                        .HasColumnName("comments");
-
-                    b.Property<DateTime?>("CompletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("completed_at");
-
-                    b.Property<int?>("CompletedByWorkerId")
-                        .HasColumnType("integer")
-                        .HasColumnName("completed_by_worker_id");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("date_created");
-
-                    b.Property<DateTime?>("DateDeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("date_deleted_at");
-
-                    b.Property<DateTime?>("DateUpdated")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("date_updated");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("description");
-
-                    b.Property<bool>("IsCompleted")
-                        .HasColumnType("boolean")
-                        .HasColumnName("is_completed");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("boolean")
-                        .HasColumnName("is_deleted");
-
-                    b.Property<bool>("IsMandatory")
-                        .HasColumnType("boolean")
-                        .HasColumnName("is_mandatory");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("title");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.HasKey("Id")
-                        .HasName("pk_verification_checklists");
-
-                    b.HasIndex("CompletedByWorkerId")
-                        .HasDatabaseName("ix_verification_checklists_completed_by_worker_id");
-
-                    b.ToTable("verification_checklists", (string)null);
-                });
-
             modelBuilder.Entity("RegionUser", b =>
                 {
                     b.Property<int>("RegionsId")
@@ -1452,18 +1292,6 @@ namespace CRMBanks.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_bank_request_requests_requests_id");
-                });
-
-            modelBuilder.Entity("CRMBanks.Core.Entities.ApplicationInternalNote", b =>
-                {
-                    b.HasOne("CRMBanks.Core.Entities.User", "Worker")
-                        .WithMany()
-                        .HasForeignKey("WorkerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_application_internal_notes_users_worker_id");
-
-                    b.Navigation("Worker");
                 });
 
             modelBuilder.Entity("CRMBanks.Core.Entities.Auth2F", b =>
@@ -1548,12 +1376,6 @@ namespace CRMBanks.Infrastructure.Migrations
 
             modelBuilder.Entity("CRMBanks.Core.Entities.DepositApplication", b =>
                 {
-                    b.HasOne("CRMBanks.Core.Entities.User", "AssignedWorker")
-                        .WithMany()
-                        .HasForeignKey("AssignedWorkerId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .HasConstraintName("fk_deposit_applications_users_assigned_worker_id");
-
                     b.HasOne("CRMBanks.Core.Entities.Deposit", "Deposit")
                         .WithMany()
                         .HasForeignKey("DepositId")
@@ -1567,8 +1389,6 @@ namespace CRMBanks.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_deposit_applications_regions_region_id");
-
-                    b.Navigation("AssignedWorker");
 
                     b.Navigation("Deposit");
 
@@ -1598,12 +1418,6 @@ namespace CRMBanks.Infrastructure.Migrations
 
             modelBuilder.Entity("CRMBanks.Core.Entities.LoanApplication", b =>
                 {
-                    b.HasOne("CRMBanks.Core.Entities.User", "AssignedWorker")
-                        .WithMany()
-                        .HasForeignKey("AssignedWorkerId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .HasConstraintName("fk_loan_applications_users_assigned_worker_id");
-
                     b.HasOne("CRMBanks.Core.Entities.Credit", "Credit")
                         .WithMany()
                         .HasForeignKey("CreditId")
@@ -1624,8 +1438,6 @@ namespace CRMBanks.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_loan_applications_users_user_id");
-
-                    b.Navigation("AssignedWorker");
 
                     b.Navigation("Credit");
 
@@ -1791,17 +1603,6 @@ namespace CRMBanks.Infrastructure.Migrations
                     b.Navigation("Bank");
 
                     b.Navigation("Role");
-                });
-
-            modelBuilder.Entity("CRMBanks.Core.Entities.VerificationChecklist", b =>
-                {
-                    b.HasOne("CRMBanks.Core.Entities.User", "CompletedByWorker")
-                        .WithMany()
-                        .HasForeignKey("CompletedByWorkerId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .HasConstraintName("fk_verification_checklists_users_completed_by_worker_id");
-
-                    b.Navigation("CompletedByWorker");
                 });
 
             modelBuilder.Entity("RegionUser", b =>

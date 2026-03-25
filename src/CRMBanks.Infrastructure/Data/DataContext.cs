@@ -22,6 +22,12 @@ public class DataContext(DbContextOptions<DataContext> options) : DbContext(opti
     public DbSet<TypeProduct> TypeProducts { get; set; }
     public DbSet<Auth2F> Auth2Fs { get; set; }
     public DbSet<Notification> Notifications { get; set; }
+    public DbSet<LoanApplication> LoanApplications { get; set; }
+    public DbSet<LoanApplicationAction> LoanApplicationActions { get; set; }
+    public DbSet<DepositApplication> DepositApplications { get; set; }
+    public DbSet<DepositApplicationAction> DepositApplicationActions { get; set; }
+    public DbSet<ApplicationInternalNote> ApplicationInternalNotes { get; set; }
+    public DbSet<VerificationChecklist> VerificationChecklists { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -113,9 +119,100 @@ public class DataContext(DbContextOptions<DataContext> options) : DbContext(opti
             .HasForeignKey(n => n.RequestId)
             .OnDelete(DeleteBehavior.Cascade);
 
+        modelBuilder.Entity<LoanApplication>()
+            .HasOne(l => l.User)
+            .WithMany() // No navigation property back to LoanApplications in User
+            .HasForeignKey(l => l.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<LoanApplication>()
+            .HasOne(l => l.Credit)
+            .WithMany() // No navigation property back to LoanApplications in Credit
+            .HasForeignKey(l => l.CreditId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<LoanApplication>()
+            .HasMany(l => l.SelectedBanks)
+            .WithMany() // Many-to-many relationship with Banks
+            .UsingEntity(j => j.ToTable("LoanApplicationBanks"));
+
+        modelBuilder.Entity<LoanApplication>()
+            .HasOne(l => l.Region)
+            .WithMany() // No navigation property back to LoanApplications in Region
+            .HasForeignKey(l => l.RegionId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<LoanApplication>()
+            .HasOne(l => l.AssignedWorker)
+            .WithMany() // No navigation property back to LoanApplications in User
+            .HasForeignKey(l => l.AssignedWorkerId)
+            .OnDelete(DeleteBehavior.SetNull);
+
+        modelBuilder.Entity<LoanApplicationAction>()
+            .HasOne(la => la.LoanApplication)
+            .WithMany(l => l.Actions)
+            .HasForeignKey(la => la.LoanApplicationId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<LoanApplicationAction>()
+            .HasOne(la => la.User)
+            .WithMany() // No navigation property back to LoanApplicationAction in User
+            .HasForeignKey(la => la.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<DepositApplication>()
+            .HasOne(d => d.Deposit)
+            .WithMany() // No navigation property back to DepositApplications in Deposit
+            .HasForeignKey(d => d.DepositId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<DepositApplication>()
+            .HasOne(d => d.Region)
+            .WithMany() // No navigation property back to DepositApplications in Region
+            .HasForeignKey(d => d.RegionId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<DepositApplication>()
+            .HasMany(d => d.SelectedBanks)
+            .WithMany() // Many-to-many relationship with Banks
+            .UsingEntity(j => j.ToTable("DepositApplicationBanks"));
+
+        modelBuilder.Entity<DepositApplication>()
+            .HasOne(d => d.AssignedWorker)
+            .WithMany() // No navigation property back to DepositApplications in User
+            .HasForeignKey(d => d.AssignedWorkerId)
+            .OnDelete(DeleteBehavior.SetNull);
+
+        modelBuilder.Entity<DepositApplicationAction>()
+            .HasOne(da => da.DepositApplication)
+            .WithMany(d => d.Actions)
+            .HasForeignKey(da => da.DepositApplicationId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<DepositApplicationAction>()
+            .HasOne(da => da.User)
+            .WithMany() // No navigation property back to DepositApplicationAction in User
+            .HasForeignKey(da => da.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<ApplicationInternalNote>()
+            .HasOne(n => n.Worker)
+            .WithMany() // No navigation property back to ApplicationInternalNotes in User
+            .HasForeignKey(n => n.WorkerId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<VerificationChecklist>()
+            .HasOne(vc => vc.CompletedByWorker)
+            .WithMany() // No navigation property back to VerificationChecklists in User
+            .HasForeignKey(vc => vc.CompletedByWorkerId)
+            .OnDelete(DeleteBehavior.SetNull);
+
         modelBuilder.Entity<Role>().HasData(
             new Role { Id = 1, Name = "admin" },
-            new Role { Id = 2, Name = "user" }
+            new Role { Id = 2, Name = "user" },
+            new Role { Id = 3, Name = "boss" },
+            new Role { Id = 4, Name = "worker" },
+            new Role { Id = 5, Name = "client" }
         );
     }
 }
